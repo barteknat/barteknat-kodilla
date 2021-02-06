@@ -5,7 +5,14 @@ public class ExceptionModuleRunner {
 
     public static void main(String[] args) {
 
-        System.out.println(new FirstChallenge().divide(3,0));
-
+        try {
+            new FirstChallenge().divide(3,0);
+        }
+        catch (ArithmeticException e) {
+            System.out.println("Cannot divide by 0");
+        }
+        finally {
+            System.out.println("Program is going on");
+        }
     }
 }
