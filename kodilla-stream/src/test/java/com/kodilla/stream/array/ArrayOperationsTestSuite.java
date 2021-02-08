@@ -14,6 +14,6 @@ public class ArrayOperationsTestSuite {
         //When
 
         //Then
-        assertEquals(10.5, resultAverage);
+        assertEquals(10.5, resultAverage, 0.1);
     }
 }
