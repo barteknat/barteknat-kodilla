@@ -1,21 +1,36 @@
 package com.kodilla.stream.world;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Continent {
 
-    List<Country> europe = Arrays.asList(
-            new Country(new BigDecimal("40000000")),
-            new Country(new BigDecimal("80000000")),
-            new Country(new BigDecimal("90000000")));
-    List<Country> asia = Arrays.asList(
-            new Country(new BigDecimal("130000000")),
-            new Country(new BigDecimal("1300000000")),
-            new Country(new BigDecimal("1000000000")));
-    List<Country> northAmerica = Arrays.asList(
-            new Country(new BigDecimal("120000000")),
-            new Country(new BigDecimal("230000000")),
-            new Country(new BigDecimal("150000000")));
+    private final String name;
+    private final List<Country> countries;
+
+    public Continent(String name, List<Country> countries) {
+        this.name = name;
+        this.countries = countries;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Country> getCountries() {
+        return countries;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Continent continent = (Continent) o;
+        return Objects.equals(name, continent.name) && Objects.equals(countries, continent.countries);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, countries);
+    }
 }

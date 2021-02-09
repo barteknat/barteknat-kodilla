@@ -13,6 +13,7 @@ public class WorldTestSuite {
         World world = new World();
 
         //When
+        world.addContinents();
         BigDecimal result = world.getPeopleQuantity();
         BigDecimal expectedResult = new BigDecimal("3140000000");
 
