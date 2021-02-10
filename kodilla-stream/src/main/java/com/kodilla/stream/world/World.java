@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class World {
 
-    private List<Continent> continents;
+    private final List<Continent> continents;
 
     public World(List<Continent> continents) {
         this.continents = continents;
