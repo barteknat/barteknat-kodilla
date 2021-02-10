@@ -15,7 +15,7 @@ public class FlightSearchRunner {
         flights.put("Berlin", false);
 
         try {
-            new FlightSearch(flights).findFlight(new Flight("Warsaw", "Tokyo"));
+            System.out.println(new FlightSearch(flights).findFlight(new Flight("Warsaw", "Tokyo")));
         } catch (RouteNotFoundException e) {
             System.out.println("Sorry flight not found.");
         } finally {
