@@ -10,12 +10,8 @@ public class FlightSearch {
         this.flights = flights;
     }
 
-    public String findFlight(Flight flight) throws RouteNotFoundException {
-        try {
-            if (flights.get(flight.getArrivalAirport())) return "Flight exist";
-            return "Airport closed";
-        } catch (NullPointerException e) {
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
+            if (flights.containsKey(flight.getArrivalAirport())) return flights.get(flight.getArrivalAirport());
             throw new RouteNotFoundException();
-        }
     }
 }
