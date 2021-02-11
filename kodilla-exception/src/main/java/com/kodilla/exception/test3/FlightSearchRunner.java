@@ -15,7 +15,12 @@ public class FlightSearchRunner {
         flights.put("Berlin", false);
 
         try {
-            System.out.println(new FlightSearch(flights).findFlight(new Flight("Warsaw", "Tokyo")));
+            if (new FlightSearch(flights).findFlight(new Flight("Warsaw", "Madrid")) == true) {
+                System.out.println("Flight exist");
+            }
+            else {
+                System.out.println("Airport closed");
+            }
         } catch (RouteNotFoundException e) {
             System.out.println("Sorry flight not found.");
         } finally {
