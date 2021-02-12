@@ -10,8 +10,8 @@ public class FlightSearch {
         this.flights = flights;
     }
 
-    public boolean findFlight(Flight flight) throws RouteNotFoundException {
-            if (flights.containsKey(flight.getArrivalAirport())) return flights.get(flight.getArrivalAirport());
-            throw new RouteNotFoundException();
+    public Boolean findFlight(Flight flight) throws RouteNotFoundException {
+        if (flights.containsKey(flight.getArrivalAirport())) return flights.get(flight.getArrivalAirport());
+        throw new RouteNotFoundException();
     }
 }
