@@ -10,6 +10,10 @@ public class OrderNumber {
         this.number = number;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -28,10 +32,6 @@ public class OrderNumber {
     @Override
     public int hashCode() {
         return Objects.hash(number);
-    }
-
-    public int getNumber() {
-        return number;
     }
 }
 

@@ -10,6 +10,10 @@ public class Payment {
         this.paid = paid;
     }
 
+    public boolean getPaid() {
+        return paid;
+    }
+
     @Override
     public String toString() {
         return "paid=" + paid;
@@ -26,10 +30,6 @@ public class Payment {
     @Override
     public int hashCode() {
         return Objects.hash(paid);
-    }
-
-    public boolean getPaid() {
-        return paid;
     }
 }
 

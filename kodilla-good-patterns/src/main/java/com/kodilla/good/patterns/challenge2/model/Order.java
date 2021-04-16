@@ -21,6 +21,30 @@ public class Order {
         this.orderDate = orderDate;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public OrderNumber getOrderNumber() {
+        return orderNumber;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public Cart getAddToCart() {
+        return addToCart;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -44,30 +68,6 @@ public class Order {
     @Override
     public int hashCode() {
         return Objects.hash(user, orderNumber, product, payment, orderDate);
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public OrderNumber getOrderNumber() {
-        return orderNumber;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public Cart getAddToCart() {
-        return addToCart;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public LocalDateTime getOrderDate() {
-        return orderDate;
     }
 }
 

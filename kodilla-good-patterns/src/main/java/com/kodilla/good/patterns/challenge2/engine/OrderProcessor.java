@@ -2,6 +2,7 @@ package com.kodilla.good.patterns.challenge2.engine;
 
 import com.kodilla.good.patterns.challenge2.model.OrderDto;
 import com.kodilla.good.patterns.challenge2.model.Order;
+import com.kodilla.good.patterns.challenge2.model.User;
 import com.kodilla.good.patterns.challenge2.repository.OrderRepository;
 import com.kodilla.good.patterns.challenge2.service.InformationService;
 import com.kodilla.good.patterns.challenge2.service.OrderService;
@@ -25,23 +26,31 @@ public class OrderProcessor {
     }
 
     public OrderDto process(final Order order) {
-        if (order.getUser() != null) {
-            boolean ordered = orderService.orderProduct(order.getUser(), order.getProduct(), order.getAddToCart());
-            boolean paid = paymentService.paid(order.getUser(), order.getProduct(), order.getPayment());
-            if (ordered) {
-                orderService.printOrderProduct(order.getUser(), order.getProduct(), order.getOrderDate(), order.getOrderNumber());
-                if (paid) {
-                    paymentService.printPaymentConfirmed(order.getOrderNumber());
-                    orderRepository.createOrder(order.getOrderNumber().getNumber(), order);
-                    informationService.inform(order.getOrderNumber(), order.getProduct(), order.getUser());
-                    return new OrderDto(order.getUser(), true);
-                }
-                paymentService.printNoPayment(order.getOrderNumber());
-                orderService.printOrderDisabled(order.getOrderNumber());
-            }
-            return new OrderDto(order.getUser(), false);
+        if (order.getUser() == null) return null;
+        boolean ordered = orderService.orderProduct(order.getUser(), order.getProduct(), order.getAddToCart());
+        boolean paid = paymentService.paid(order.getUser(), order.getProduct(), order.getPayment());
+        if (ordered) {
+            showOrder(order);
+            if (paid) return makeOrder(order);
+            disableOrder(order);
         }
         return new OrderDto(order.getUser(), false);
+    }
+
+    private void showOrder(Order order) {
+        orderService.printOrderProduct(order.getUser(), order.getProduct(), order.getOrderDate(), order.getOrderNumber());
+    }
+
+    private OrderDto makeOrder(Order order) {
+        paymentService.printPaymentConfirmed(order.getOrderNumber());
+        orderRepository.createOrder(order.getOrderNumber().getNumber(), order);
+        informationService.inform(order.getOrderNumber(), order.getProduct(), order.getUser());
+        return new OrderDto(order.getUser(), true);
+    }
+
+    private void disableOrder(Order order) {
+        paymentService.printNoPayment(order.getOrderNumber());
+        orderService.printOrderDisabled(order.getOrderNumber());
     }
 }
 

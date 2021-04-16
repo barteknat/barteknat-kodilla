@@ -10,6 +10,10 @@ public class Cart {
         this.addToCart = addToCart;
     }
 
+    public boolean getAddToCart() {
+        return addToCart;
+    }
+
     @Override
     public String
     toString() {
@@ -29,9 +33,5 @@ public class Cart {
     @Override
     public int hashCode() {
         return Objects.hash(addToCart);
-    }
-
-    public boolean getAddToCart() {
-        return addToCart;
     }
 }
