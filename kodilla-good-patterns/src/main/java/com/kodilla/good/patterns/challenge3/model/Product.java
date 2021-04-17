@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Product {
 
-    String productKind;
+    private final String productKind;
 
     public Product(String productKind) {
         this.productKind = productKind;
@@ -29,9 +29,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "productKind='" + productKind + '\'' +
-                '}';
+        return productKind;
     }
 }
 

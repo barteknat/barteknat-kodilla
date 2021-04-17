@@ -4,16 +4,16 @@ import java.util.Objects;
 
 public class Quantity {
 
-    private final int quantity;
+    private final int productAmount;
     private final String unit;
 
-    public Quantity(int quantity, String unit) {
-        this.quantity = quantity;
+    public Quantity(int productAmount, String unit) {
+        this.productAmount = productAmount;
         this.unit = unit;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getProductAmount() {
+        return productAmount;
     }
 
     public String getUnit() {
@@ -25,20 +25,17 @@ public class Quantity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Quantity that = (Quantity) o;
-        return quantity == that.quantity;
+        return productAmount == that.productAmount;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(quantity);
+        return Objects.hash(productAmount);
     }
 
     @Override
     public String toString() {
-        return "Quantity{" +
-                "quantity=" + quantity +
-                ", unit='" + unit + '\'' +
-                '}';
+        return productAmount + unit;
     }
 }
 

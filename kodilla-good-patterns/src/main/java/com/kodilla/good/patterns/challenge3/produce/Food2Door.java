@@ -1,5 +1,6 @@
 package com.kodilla.good.patterns.challenge3.produce;
 
+import com.kodilla.good.patterns.challenge3.model.Order;
 import com.kodilla.good.patterns.challenge3.model.Product;
 import com.kodilla.good.patterns.challenge3.model.Quantity;
 
@@ -7,33 +8,25 @@ import java.util.Map;
 
 public interface Food2Door {
 
+    String getName();
+
     Map<Product, Quantity> getProducts();
 
-    default void printProducts(Map<Product, Quantity> products) {
-        System.out.println(products);
+    void setProducts();
+
+    boolean process(Order order);
+
+    static void printOrderPossible(Order order, String name) {
+        System.out.println(order + " is possible in " + name);
     }
-
-    boolean getOrdered();
-
-    String producerInfo();
-
-    default void printProducerInfo(String producerInfo) {
-        System.out.println(producerInfo);
+    static void printOrderDenied(Order order, String name) {
+        System.out.println(order + " is not possible in " + name + " - not enough quantity of order product");
     }
-
-    default void printOrderProduct(Product product, Quantity quantity) {
-        System.out.println("The order is: " + product + " " + quantity);
+    static void printNoProduct(Order order, String name) {
+        System.out.println("Product: " + order.getProduct() + " not found in " + name + " database");
     }
-
-    void addProduct(Product product, Quantity quantity);
-
-    void process(Product productOrder, Quantity quantityOrder);
-
-    default void printOrderConfirmed() {
-        System.out.println("The order has been confirmed.");
-    }
-    default void printOrderRejected() {
-        System.out.println("The order has been rejected.");
+    static void printWrongUnit() {
+        System.out.println("Wrong unit");
     }
 }
 
