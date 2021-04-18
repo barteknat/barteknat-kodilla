@@ -4,30 +4,28 @@ import com.kodilla.good.patterns.challenge4.model.Arrival;
 import com.kodilla.good.patterns.challenge4.model.Departure;
 import com.kodilla.good.patterns.challenge4.model.Flight;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class FlightDatabase {
 
-    Map<Flight, Flight> flightDatabase = new LinkedHashMap<>();
+    private final Set<Flight> flights = new LinkedHashSet<>();
 
-    public Map<Flight, Flight> initFlights() {
-        flightDatabase.put(
-                new Flight(new Departure("Warsaw"), new Arrival("Torino")),
-                new Flight(new Departure("Torino"), new Arrival("Rome")));
-        flightDatabase.put(
-                new Flight(new Departure("Warsaw"), new Arrival("Cracow")),
-                new Flight(new Departure("Cracow"), new Arrival("Rome")));
-        flightDatabase.put(
-                new Flight(new Departure("Warsaw"), new Arrival("Berlin")),
-                new Flight(new Departure("Berlin"), new Arrival("Madrid")));
-        flightDatabase.put(
-                new Flight(new Departure("Prague"), new Arrival("Berlin")),
-                new Flight(new Departure("Berlin"), new Arrival("Rome")));
-        flightDatabase.put(
-                new Flight(new Departure("Warsaw"), new Arrival("Oslo")),
-                new Flight(new Departure("Oslo"), new Arrival("Madrid")));
-        return flightDatabase;
+    public FlightDatabase() {
+    }
+
+    public Set<Flight> getFlights() {
+        flights.add(new Flight(new Departure("Warsaw"), new Arrival("Amsterdam")));
+        flights.add(new Flight(new Departure("Warsaw"), new Arrival("Berlin")));
+        flights.add(new Flight(new Departure("Warsaw"), new Arrival("Tokyo")));
+        flights.add(new Flight(new Departure("Warsaw"), new Arrival("Beijing")));
+        flights.add(new Flight(new Departure("Warsaw"), new Arrival("Paris")));
+        flights.add(new Flight(new Departure("Warsaw"), new Arrival("Rome")));
+        flights.add(new Flight(new Departure("Paris"), new Arrival("Tokyo")));
+        flights.add(new Flight(new Departure("Paris"), new Arrival("London")));
+        flights.add(new Flight(new Departure("Berlin"), new Arrival("Torino")));
+        flights.add(new Flight(new Departure("Paris"), new Arrival("Rome")));
+        flights.add(new Flight(new Departure("Berlin"), new Arrival("Rome")));
+        return flights;
     }
 }
 

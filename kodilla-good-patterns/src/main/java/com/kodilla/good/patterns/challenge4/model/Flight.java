@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Flight {
 
-    Departure departure;
-    Arrival arrival;
+    private final Departure departure;
+    private final Arrival arrival;
 
     public Flight(Departure departure, Arrival arrival) {
         this.departure = departure;
@@ -35,10 +35,10 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
-                "departure=" + departure +
-                ", arrival=" + arrival +
-                '}';
+        return "Flight [" +
+                "departure = " + departure +
+                ", arrival = " + arrival +
+                "]";
     }
 }
 

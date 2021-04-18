@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Arrival {
 
-    String arrivalAirport;
+    private final String arrivalAirport;
 
     public Arrival(String arrivalAirport) {
         this.arrivalAirport = arrivalAirport;
@@ -29,9 +29,7 @@ public class Arrival {
 
     @Override
     public String toString() {
-        return "Arrival{" +
-                "arrivalAirport='" + arrivalAirport + '\'' +
-                '}';
+        return arrivalAirport;
     }
 }
 
