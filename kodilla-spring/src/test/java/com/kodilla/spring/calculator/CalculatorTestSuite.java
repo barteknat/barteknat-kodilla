@@ -16,44 +16,32 @@ public class CalculatorTestSuite {
     void testAdd() {
         //Given
 
-        //When
-        double score = calculator.add(5.5, 4.5);
-
-        //Then
-        assertEquals(5.5 + 4.5, score);
+        //When & Then
+        calculator.add(5.5, 4.5);
     }
 
     @Test
     void testSub() {
         //Given
 
-        //When
-        double score = calculator.sub(5.5, 4.5);
-
-        //Then
-        assertEquals(5.5 - 4.5, score);
+        //When & Then
+        calculator.sub(5.5, 4.5);
     }
 
     @Test
     void testMul() {
         //Given
 
-        //When
-        double score = calculator.mul(2.0, 4.5);
-
-        //Then
-        assertEquals(2.0 * 4.5, score);
+        //When & Then
+        calculator.mul(2.0, 4.5);
     }
 
     @Test
     void testDiv() {
         //Given
 
-        //When
-        double score = calculator.div(3, 2);
-
-        //Then
-        assertEquals(3.0 / 2, score);
+        //When & Then
+        calculator.div(3, 2);
     }
 }
 
