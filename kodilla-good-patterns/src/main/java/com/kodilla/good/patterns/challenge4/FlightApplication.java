@@ -12,9 +12,9 @@ public class FlightApplication {
         Search search = new FlightSearch(flightDatabase);
         search.searchFrom("Warsaw").forEach(System.out::println);
         System.out.println();
-        search.searchTo("Tokyo").forEach(System.out::println);
+        search.searchTo("Rome").forEach(System.out::println);
         System.out.println();
-        search.searchFromTo("Warsaw", "Rome").forEach(System.out::println);
+        search.searchFromTo("Warsaw", "Sydney").forEach(System.out::println);
     }
 }
 

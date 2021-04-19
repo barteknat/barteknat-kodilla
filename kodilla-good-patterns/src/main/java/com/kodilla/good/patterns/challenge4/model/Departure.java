@@ -4,14 +4,14 @@ import java.util.Objects;
 
 public class Departure {
 
-    private final String departureAirport;
+    private final String airport;
 
-    public Departure(String departureAirport) {
-        this.departureAirport = departureAirport;
+    public Departure(String airport) {
+        this.airport = airport;
     }
 
-    public String getDepartureAirport() {
-        return departureAirport;
+    public String getAirport() {
+        return airport;
     }
 
     @Override
@@ -19,17 +19,17 @@ public class Departure {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Departure departure = (Departure) o;
-        return Objects.equals(departureAirport, departure.departureAirport);
+        return Objects.equals(airport, departure.airport);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(departureAirport);
+        return Objects.hash(airport);
     }
 
     @Override
     public String toString() {
-        return departureAirport;
+        return airport;
     }
 }
 

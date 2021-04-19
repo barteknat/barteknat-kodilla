@@ -2,49 +2,53 @@ package com.kodilla.good.patterns.challenge4.service;
 
 import com.kodilla.good.patterns.challenge4.database.FlightDatabase;
 import com.kodilla.good.patterns.challenge4.model.Flight;
+import com.kodilla.good.patterns.challenge4.model.Flights;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FlightSearch implements Search {
 
-    FlightDatabase flightDatabase;
+    private final FlightDatabase flightDatabase;
 
     public FlightSearch(FlightDatabase flightDatabase) {
         this.flightDatabase = flightDatabase;
     }
 
-    public List<Flight> searchFrom(String fromCity) {
-        List<Flight> flightsFrom = flightDatabase.getFlights().stream()
-                .filter(flight -> flight.getDeparture().getDepartureAirport().equals(fromCity))
-                .collect(Collectors.toList());
+    public Set<Flight> searchFrom(String fromCity) {
+        Set<Flight> flight1 = flightDatabase.getFlights().stream()
+                .map(Flights::getFlight1)
+                .filter(flights -> flights.getDeparture().getAirport().equals(fromCity))
+                .collect(Collectors.toSet());
+        Set<Flight> flight2 = flightDatabase.getFlights().stream()
+                .map(Flights::getFlight2)
+                .filter(flights -> flights.getDeparture().getAirport().equals(fromCity))
+                .collect(Collectors.toSet());
+        Set<Flight> flightsFrom = new LinkedHashSet<>(flight1);
+        flightsFrom.addAll(flight2);
         return flightsFrom;
     }
 
-    public List<Flight> searchTo(String toCity) {
-        List<Flight> flightsTo = flightDatabase.getFlights().stream()
-                .filter(flight -> flight.getArrival().getArrivalAirport().equals(toCity))
-                .collect(Collectors.toList());
+    public Set<Flight> searchTo(String toCity) {
+        Set<Flight> flight1 = flightDatabase.getFlights().stream()
+                .map(Flights::getFlight1)
+                .filter(flights -> flights.getArrival().getAirport().equals(toCity))
+                .collect(Collectors.toSet());
+        Set<Flight> flight2 = flightDatabase.getFlights().stream()
+                .map(Flights::getFlight2)
+                .filter(flights -> flights.getArrival().getAirport().equals(toCity))
+                .collect(Collectors.toSet());
+        Set<Flight> flightsTo = new LinkedHashSet<>(flight1);
+        flightsTo.addAll(flight2);
         return flightsTo;
     }
 
-    public List<Flight> searchFromTo(String fromCity, String toCity) {
-        List<Flight> flightsFromTo = new ArrayList<>();
-        for (Flight flight1 : flightDatabase.getFlights()) {
-            for (Flight flight2 : flightDatabase.getFlights()) {
-                if (isFlight(fromCity, toCity, flight1, flight2)) {
-                    flightsFromTo.add(flight1);
-                    flightsFromTo.add(flight2);
-                }
-            }
-        }
+    public List<Flights> searchFromTo(String fromCity, String toCity) {
+        List<Flights> flightsFromTo = flightDatabase.getFlights().stream()
+                .filter(flights -> flights.getFlight1().getDeparture().getAirport().equals(fromCity)
+                        && flights.getFlight2().getArrival().getAirport().equals(toCity))
+                .collect(Collectors.toList());
         return flightsFromTo;
-    }
-
-    private boolean isFlight(String fromCity, String toCity, Flight flight1, Flight flight2) {
-        return flight1.getDeparture().getDepartureAirport().equals(fromCity) && flight2.getArrival().getArrivalAirport().equals(toCity) &&
-                flight1.getArrival().getArrivalAirport().equals(flight2.getDeparture().getDepartureAirport());
     }
 }
 

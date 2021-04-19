@@ -1,16 +1,17 @@
 package com.kodilla.good.patterns.challenge4.service;
 
 import com.kodilla.good.patterns.challenge4.model.Flight;
+import com.kodilla.good.patterns.challenge4.model.Flights;
 
 import java.util.List;
+import java.util.Set;
 
 public interface Search {
 
-    List<Flight> searchFrom(String fromCity);
+    Set<Flight> searchFrom(String fromCity);
 
-    List<Flight> searchTo(String toCity);
+    Set<Flight> searchTo(String toCity);
 
-    List<Flight> searchFromTo(String fromCity, String toCity);
-
+    List<Flights> searchFromTo(String fromCity, String toCity);
 }
 
