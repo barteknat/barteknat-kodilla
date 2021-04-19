@@ -31,10 +31,10 @@ public class Game {
             return GameResult.EXIT;
         }
         if (result == RoundResult.NEW) {
-            statistics.decrementStatistics();
+            statistics.resetStatistics();
             return GameResult.NEXT;
         }
-        statistics.decrementStatistics();
+        statistics.resetStatistics();
         return GameResult.END;
     }
 
@@ -70,3 +70,4 @@ public class Game {
         return definition.getUsername();
     }
 }
+

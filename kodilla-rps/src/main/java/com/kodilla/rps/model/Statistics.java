@@ -39,7 +39,7 @@ public final class Statistics {
         this.draws++;
     }
 
-    public void decrementStatistics() {
+    public void resetStatistics() {
         this.rounds = 0;
         this.wins = 0;
         this.loses = 0;
@@ -64,3 +64,4 @@ public final class Statistics {
         return getWins() < roundsCount && getLoses() < roundsCount;
     }
 }
+

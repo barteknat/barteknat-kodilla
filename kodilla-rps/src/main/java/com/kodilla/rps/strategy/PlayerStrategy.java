@@ -27,3 +27,4 @@ public class PlayerStrategy implements Strategy {
         return NEW;
     }
 }
+

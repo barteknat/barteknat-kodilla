@@ -12,3 +12,4 @@ public class RpsApplication {
         gameRunner.run();
     }
 }
+

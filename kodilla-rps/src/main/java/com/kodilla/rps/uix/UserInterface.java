@@ -37,3 +37,4 @@ public interface UserInterface {
 
     void thankYou(String username);
 }
+

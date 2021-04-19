@@ -10,9 +10,7 @@ public class EnemyStrategy implements Strategy {
 
     @Override
     public Move getMove() {
-        int enemyChoice = random.nextInt(3) + 1;
-        if (enemyChoice == 1) return Move.ROCK;
-        if (enemyChoice == 2) return Move.PAPER;
-        return Move.SCISSORS;
+        return Move.getByOrdinal(random.nextInt(3));
     }
 }
+

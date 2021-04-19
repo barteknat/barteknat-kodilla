@@ -6,5 +6,10 @@ public enum Move {
     PAPER,
     SCISSORS,
     EXIT,
-    NEW
+    NEW;
+
+    public static Move getByOrdinal(int ordinal) {
+        return Move.values()[ordinal];
+    }
 }
+

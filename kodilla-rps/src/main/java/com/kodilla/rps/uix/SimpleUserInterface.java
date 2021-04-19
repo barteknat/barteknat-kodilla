@@ -107,3 +107,4 @@ public class SimpleUserInterface implements UserInterface {
         System.out.println("\n" + username + " thank you for playing. Goodbye.");
     }
 }
+

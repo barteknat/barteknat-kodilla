@@ -25,3 +25,4 @@ public class GameDefinition {
                 "\nrounds to win = " + rounds;
     }
 }
+
