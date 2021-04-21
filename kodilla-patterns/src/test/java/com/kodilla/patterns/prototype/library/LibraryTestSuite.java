@@ -28,7 +28,7 @@ public class LibraryTestSuite {
 
         Library deepClonedLibrary = null;
         try {
-            deepClonedLibrary = library.deepClone();
+            deepClonedLibrary = library.deepCopy();
             deepClonedLibrary.setName("Deep Cloned Library");
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();

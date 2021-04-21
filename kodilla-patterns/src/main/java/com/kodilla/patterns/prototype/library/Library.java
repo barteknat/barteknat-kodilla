@@ -14,27 +14,27 @@ public class Library extends Prototype<Library> {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public Set<Book> getBooks() {
-        return books;
+    public String getName() {
+        return name;
     }
 
     public void setBooks(Book book) {
         this.books.add(book);
     }
 
+    public Set<Book> getBooks() {
+        return books;
+    }
+
     public Library shallowCopy() throws CloneNotSupportedException {
         return super.clone();
     }
 
-    public Library deepClone() throws CloneNotSupportedException {
+    public Library deepCopy() throws CloneNotSupportedException {
         Library clonedLibrary = super.clone();
         clonedLibrary.books = new HashSet<>();
         books.stream()
