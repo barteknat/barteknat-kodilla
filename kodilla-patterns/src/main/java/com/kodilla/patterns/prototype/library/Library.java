@@ -22,7 +22,7 @@ public class Library extends Prototype<Library> {
         return name;
     }
 
-    public void setBooks(Book book) {
+    public void addBook(Book book) {
         this.books.add(book);
     }
 
@@ -38,7 +38,8 @@ public class Library extends Prototype<Library> {
         Library clonedLibrary = super.clone();
         clonedLibrary.books = new HashSet<>();
         books.stream()
-                .forEach(clonedLibrary::setBooks);
+                .map(book -> new Book(book.getTitle(), book.getAuthor(), book.getPublicationDate()))
+                .forEach(clonedLibrary::addBook);
         return clonedLibrary;
     }
 

@@ -16,7 +16,7 @@ public class LibraryTestSuite {
         Library library = new Library("Base Library");
         IntStream.iterate(1, n -> n + 1)
                 .limit(3)
-                .forEach(n -> library.setBooks(new Book("Title " + n, "Author " + n, LocalDate.of(2001, 1, n))));
+                .forEach(n -> library.addBook(new Book("Title " + n, "Author " + n, LocalDate.of(2001, 1, n))));
 
         Library shallowClonedLibrary = null;
         try {
@@ -48,3 +48,4 @@ public class LibraryTestSuite {
         assertNotEquals(library.getBooks(), deepClonedLibrary.getBooks());
     }
 }
+

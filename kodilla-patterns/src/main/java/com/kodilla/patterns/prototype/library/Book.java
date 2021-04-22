@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Book {
 
-    private final String title;
+    private String title;
     private final String author;
     private final LocalDate publicationDate;
 
