@@ -2,44 +2,55 @@ package com.kodilla.patterns.factory.tasks;
 
 import org.junit.jupiter.api.Test;
 
-import static com.kodilla.patterns.factory.tasks.TaskFactory.*;
+import static com.kodilla.patterns.factory.tasks.Tasks.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TaskFactoryTestSuite {
 
-    private final TaskFactory factory = new TaskFactory();
+    private final ShoppingTaskDTO shoppingTaskDTO = new ShoppingTaskDTO();
+    private final PaintingTaskDTO paintingTaskDTO = new PaintingTaskDTO();
+    private final DrivingTaskDTO drivingTaskDTO = new DrivingTaskDTO();
+    private final TaskFactory factory = new TaskFactory(shoppingTaskDTO, paintingTaskDTO, drivingTaskDTO);
 
     @Test
     void testFactoryShopping() {
         //Given
-        Task shopping = factory.makeTask(SHOPPING);
+        shoppingTaskDTO.setTaskParameters("Bedroom Equipment", "bed", 1);
+        Task shopping1 = factory.makeTask(SHOPPING);
+        shoppingTaskDTO.setTaskParameters("Kitchen Equipment", "oven", 1);
+        Task shopping2 = factory.makeTask(SHOPPING);
         //When
-        shopping.executeTask();
+        shopping1.executeTask();
+        shopping2.executeTask();
         //Then
-        assertEquals("Bedroom Equipment", shopping.getTaskName());
-        assertTrue(shopping.isTaskExecuted());
+        assertEquals("Bedroom Equipment", shopping1.getTaskName());
+        assertEquals("Kitchen Equipment", shopping2.getTaskName());
+        assertTrue(shopping1.isTaskExecuted());
+        assertTrue(shopping2.isTaskExecuted());
     }
 
     @Test
     void testFactoryPainting() {
         //Given
+        paintingTaskDTO.setTaskParameters("Renovation", "green", "fence");
         Task painting = factory.makeTask(PAINTING);
         //When
         painting.executeTask();
         //Then
-        assertEquals("Operation Renovation", painting.getTaskName());
+        assertEquals("Renovation", painting.getTaskName());
         assertTrue(painting.isTaskExecuted());
     }
 
     @Test
     void testFactoryDriving() {
         //Given
+        drivingTaskDTO.setTaskParameters("Holidays", "Sosnowiec", "car");
         Task driving = factory.makeTask(DRIVING);
         //When
         driving.executeTask();
         //Then
-        assertEquals("Holidays Holidays", driving.getTaskName());
+        assertEquals("Holidays", driving.getTaskName());
         assertTrue(driving.isTaskExecuted());
     }
 }

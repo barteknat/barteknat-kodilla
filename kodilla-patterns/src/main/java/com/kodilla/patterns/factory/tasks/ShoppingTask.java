@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class ShoppingTask implements Task {
 
-    private final List<Task> executedShoppingTasks = new ArrayList<>();
+    private final static List<Task> executedShoppingTasks = new ArrayList<>();
     private final String taskName;
     private final String whatToBuy;
     private final double quantity;

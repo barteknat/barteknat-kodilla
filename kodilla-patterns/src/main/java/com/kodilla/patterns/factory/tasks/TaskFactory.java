@@ -2,20 +2,27 @@ package com.kodilla.patterns.factory.tasks;
 
 public class TaskFactory {
 
-    public static final String SHOPPING = "SHOPPING";
-    public static final String PAINTING = "PAINTING";
-    public static final String DRIVING = "DRIVING";
+    private final ShoppingTaskDTO shoppingTaskDTO;
+    private final PaintingTaskDTO paintingTaskDTO;
+    private final DrivingTaskDTO drivingTaskDTO;
 
-    public Task makeTask(String task) {
+    public TaskFactory(ShoppingTaskDTO shoppingTaskDTO, PaintingTaskDTO paintingTaskDTO, DrivingTaskDTO drivingTaskDTO) {
+        this.shoppingTaskDTO = new ShoppingTaskDTO();
+        this.paintingTaskDTO = new PaintingTaskDTO();
+        this.drivingTaskDTO = new DrivingTaskDTO();
+    }
+
+    public Task makeTask(Tasks task) {
         switch (task) {
             case SHOPPING:
-                return new ShoppingTask("Bedroom Equipment", "bed", 1);
+                return new ShoppingTask(shoppingTaskDTO.getTaskName(), shoppingTaskDTO.getWhatToBuy(), shoppingTaskDTO.getQuantity());
             case PAINTING:
-                return new PaintingTask("Operation Renovation", "green", "fence");
+                return new PaintingTask(paintingTaskDTO.getTaskName(), paintingTaskDTO.getColor(), paintingTaskDTO.getWhatToPaint());
             case DRIVING:
-                return new DrivingTask("Holidays Holidays", "Sosnowiec", "tank");
+                return new DrivingTask(drivingTaskDTO.getTaskName(), drivingTaskDTO.getWhere(), drivingTaskDTO.getUsing());
             default:
-                return null;
+                throw new IllegalStateException("Making task [" + task + "] is not possible.");
         }
     }
 }
+
