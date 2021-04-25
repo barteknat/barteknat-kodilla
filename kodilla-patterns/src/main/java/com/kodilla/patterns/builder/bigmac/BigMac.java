@@ -3,21 +3,26 @@ package com.kodilla.patterns.builder.bigmac;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.kodilla.patterns.builder.bigmac.Bun.NOSESAME;
+import static com.kodilla.patterns.builder.bigmac.Bun.SESAME;
+import static com.kodilla.patterns.builder.bigmac.Ingredient.*;
+import static com.kodilla.patterns.builder.bigmac.Sauce.*;
+
 public class BigMac {
 
-    private final String bun;
+    private final Bun bun;
     private final int burgers;
-    private final String sauce;
-    private final List<String> ingredients;
+    private final Sauce sauce;
+    private final List<Ingredient> ingredients;
 
-    private BigMac(String bun, int burgers, String sauce, List<String> ingredients) {
+    private BigMac(Bun bun, int burgers, Sauce sauce, List<Ingredient> ingredients) {
         this.bun = bun;
         this.burgers = burgers;
         this.sauce = sauce;
         this.ingredients = new ArrayList<>(ingredients);
     }
 
-    public String getBun() {
+    public Bun getBun() {
         return bun;
     }
 
@@ -25,34 +30,21 @@ public class BigMac {
         return burgers;
     }
 
-    public String getSauce() {
+    public Sauce getSauce() {
         return sauce;
     }
 
-    public List<String> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
     public static class BicMacBuilder {
-        public static final String SESAME = "SESAME";
-        public static final String NOSESAME = "NOSESAME";
-        public static final String STANDARD = "STANDARD";
-        public static final String ONETHOUSANDISLANDS = "ONETHOUSANDISLANDS";
-        public static final String BARBECUE = "BARBECUE";
-        public static final String LETTUCE = "LETTUCE";
-        public static final String ONION = "ONION";
-        public static final String BEACON = "BEACON";
-        public static final String PICKLES = "PICKLES";
-        public static final String CHILIPEPPERS = "CHILIPEPPERS";
-        public static final String MUSHROOMS = "MUSHROOMS";
-        public static final String SHRIMPS = "SHRIMPS";
-        public static final String CHEESE = "CHEESE";
-        private String bun;
+        private Bun bun;
         private int burgers;
-        private String sauce;
-        private final List<String> ingredients = new ArrayList<>();
+        private Sauce sauce;
+        private final List<Ingredient> ingredients = new ArrayList<>();
 
-        public BicMacBuilder bun(String bun) {
+        public BicMacBuilder bun(Bun bun) {
             return injectBun(bun);
         }
 
@@ -60,15 +52,15 @@ public class BigMac {
             return injectBurgers(burgers);
         }
 
-        public BicMacBuilder sauce(String sauce) {
+        public BicMacBuilder sauce(Sauce sauce) {
             return injectSauce(sauce);
         }
 
-        public BicMacBuilder ingredient(String ingredient) {
+        public BicMacBuilder ingredient(Ingredient ingredient) {
             return injectIngredients(ingredient);
         }
 
-        private BicMacBuilder injectBun(String bun) {
+        private BicMacBuilder injectBun(Bun bun) {
             if (isChoicePossible(bun)) {
                 this.bun = bun;
                 return this;
@@ -86,7 +78,7 @@ public class BigMac {
             }
         }
 
-        private BicMacBuilder injectSauce(String sauce) {
+        private BicMacBuilder injectSauce(Sauce sauce) {
             if (isSauce(sauce)) {
                 this.sauce = sauce;
                 return this;
@@ -95,7 +87,7 @@ public class BigMac {
             }
         }
 
-        private BicMacBuilder injectIngredients(String ingredient) {
+        private BicMacBuilder injectIngredients(Ingredient ingredient) {
             if (isIngredient(ingredient)) {
                 this.ingredients.add(ingredient);
                 return this;
@@ -104,16 +96,16 @@ public class BigMac {
             }
         }
 
-        private boolean isChoicePossible(String bun) {
+        private boolean isChoicePossible(Bun bun) {
             return bun.equals(SESAME) || bun.equals(NOSESAME);
         }
 
-        private boolean isSauce(String sauce) {
+        private boolean isSauce(Sauce sauce) {
             return sauce.equals(STANDARD) || sauce.equals(ONETHOUSANDISLANDS) ||
                     sauce.equals(BARBECUE);
         }
 
-        private boolean isIngredient(String ingredient) {
+        private boolean isIngredient(Ingredient ingredient) {
             return ingredient.equals(LETTUCE) || ingredient.equals(ONION) ||
                     ingredient.equals(BEACON) || ingredient.equals(PICKLES) ||
                     ingredient.equals(CHILIPEPPERS) || ingredient.equals(MUSHROOMS) ||

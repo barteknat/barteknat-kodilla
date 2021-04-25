@@ -2,7 +2,9 @@ package com.kodilla.patterns.builder.bigmac;
 
 import org.junit.jupiter.api.Test;
 
-import static com.kodilla.patterns.builder.bigmac.BigMac.BicMacBuilder.*;
+import static com.kodilla.patterns.builder.bigmac.Bun.SESAME;
+import static com.kodilla.patterns.builder.bigmac.Ingredient.*;
+import static com.kodilla.patterns.builder.bigmac.Sauce.BARBECUE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BigMacTestSuite {
