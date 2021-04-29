@@ -27,48 +27,48 @@ VALUES ("Done");
 COMMIT;
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (1, "Task 1 to do", "Description of task 1 to do", 1);
+VALUES (1, "Task 1 of [to do]", "Description of task 1 of [to do]", 1);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (1, "Task 2 to do", "Description of task 2 to do", 1);
+VALUES (1, "Task 2 of [to do]", "Description of task 2 of [to do]", 1);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (1, "Task 3 to do", "Description of task 3 to do", 2);
+VALUES (1, "Task 3 of [to do]", "Description of task 3 of [to do]", 2);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (1, "Task 4 to do", "Description of task 4 to do", 2);
+VALUES (1, "Task 4 of [to do]", "Description of task 4 of [to do]", 2);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (1, "Task 5 to do", "Description of task 5 to do", 2);
+VALUES (1, "Task 5 of [to do]", "Description of task 5 of [to do]", 2);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 1 in progress", "Description of task 1 in progress", 2);
+VALUES (2, "Task 1 of [in progress]", "Description of task 1 of [in progress]", 2);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 2 in progress", "Description of task 2 in progress", 3);
+VALUES (2, "Task 2 of [in progress]", "Description of task 2 of [in progress]", 3);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 3 in progress", "Description of task 3 in progress", 4);
+VALUES (2, "Task 3 of [in progress]", "Description of task 3 of [in progress]", 4);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 4 in progress", "Description of task 4 in progress", 3);
+VALUES (2, "Task 4 of [in progress]", "Description of task 4 of [in progress]", 3);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 5 in progress", "Description of task 5 in progress", 5);
+VALUES (2, "Task 5 of [in progress]", "Description of task 5 of [in progress]", 5);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 1 done", "Description of task 1 in progress", 5);
+VALUES (3, "Task 1 of [done]", "Description of task 1 of [done]", 5);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 2 done", "Description of task 2 done", 1);
+VALUES (3, "Task 2 of [done]", "Description of task 2 of [done]", 1);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 3 done", "Description of task 3 done", 2);
+VALUES (3, "Task 3 of [done]", "Description of task 3 of [done]", 2);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 4 done", "Description of task 4 done", 3);
+VALUES (3, "Task 4 of [done]", "Description of task 4 of [done]", 3);
 
 INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
-VALUES (2, "Task 5 done", "Description of task 5 done", 4);
+VALUES (3, "Task 5 of [done]", "Description of task 5 of [done]", 4);
 
 COMMIT;
