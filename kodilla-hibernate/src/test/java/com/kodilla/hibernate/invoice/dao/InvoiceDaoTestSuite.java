@@ -31,6 +31,8 @@ public class InvoiceDaoTestSuite {
         Product product2 = new Product("TV");
         productDao.save(product1);
         productDao.save(product2);
+        int product1Id = product1.getId();
+        int product2Id = product2.getId();
         product1.getItemList().add(item1);
         product2.getItemList().add(item2);
         product2.getItemList().add(item3);
@@ -38,22 +40,24 @@ public class InvoiceDaoTestSuite {
         item2.setProduct(product2);
         item3.setProduct(product2);
 
-        Invoice invoice = new Invoice("IV 2020/10/20");
-        invoice.getItemList().add(item1);
-        invoice.getItemList().add(item2);
-        invoice.getItemList().add(item3);
-        item1.setInvoice(invoice);
-        item2.setInvoice(invoice);
-        item3.setInvoice(invoice);
+        Invoice invoice1 = new Invoice("IV 2020/10/20");
+        invoice1.getItemList().add(item1);
+        invoice1.getItemList().add(item2);
+        invoice1.getItemList().add(item3);
+        item1.setInvoice(invoice1);
+        item2.setInvoice(invoice1);
+        item3.setInvoice(invoice1);
 
         //When
-        invoiceDao.save(invoice);
-        int invoiceID = invoice.getId();
+        invoiceDao.save(invoice1);
+        int invoice1Id = invoice1.getId();
 
         //Then
-        assertNotEquals(0, invoiceID);
+        assertNotEquals(0, invoice1Id);
 
         //CleanUp
-        invoiceDao.deleteById(invoiceID);
+        productDao.deleteById(product1Id);
+        productDao.deleteById(product2Id);
+        invoiceDao.deleteById(invoice1Id);
     }
 }
