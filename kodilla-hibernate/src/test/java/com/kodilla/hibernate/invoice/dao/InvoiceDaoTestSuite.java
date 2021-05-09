@@ -17,18 +17,27 @@ public class InvoiceDaoTestSuite {
     @Autowired
     private InvoiceDao invoiceDao;
 
+    @Autowired
+    private ProductDao productDao;
+
     @Test
     void testInvoiceDaoSave() {
         //Given
         Item item1 = new Item(new BigDecimal(3000), 5);
         Item item2 = new Item(new BigDecimal(10000), 2);
         Item item3 = new Item(new BigDecimal(5000), 20);
+
         Product product1 = new Product("COFFEE MACHINE");
         Product product2 = new Product("TV");
-        Product product3 = new Product("COMPUTER");
+        productDao.save(product1);
+        productDao.save(product2);
+        product1.getItemList().add(item1);
+        product2.getItemList().add(item2);
+        product2.getItemList().add(item3);
         item1.setProduct(product1);
         item2.setProduct(product2);
-        item3.setProduct(product3);
+        item3.setProduct(product2);
+
         Invoice invoice = new Invoice("IV 2020/10/20");
         invoice.getItemList().add(item1);
         invoice.getItemList().add(item2);
@@ -36,11 +45,14 @@ public class InvoiceDaoTestSuite {
         item1.setInvoice(invoice);
         item2.setInvoice(invoice);
         item3.setInvoice(invoice);
+
         //When
         invoiceDao.save(invoice);
         int invoiceID = invoice.getId();
+
         //Then
         assertNotEquals(0, invoiceID);
+
         //CleanUp
         invoiceDao.deleteById(invoiceID);
     }

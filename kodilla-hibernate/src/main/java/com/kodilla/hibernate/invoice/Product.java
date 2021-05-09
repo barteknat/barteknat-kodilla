@@ -1,12 +1,15 @@
 package com.kodilla.hibernate.invoice;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Product {
 
     private int id;
     private String name;
+    private List<Item> itemList = new ArrayList<>();
 
     public Product() {
 
@@ -25,6 +28,20 @@ public class Product {
 
     public String getName() {
         return name;
+    }
+
+    @OneToMany(
+            targetEntity = Item.class,
+            mappedBy = "invoice",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
     private void setId(int id) {
