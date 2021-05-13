@@ -24,8 +24,7 @@ public class Item {
     }
 
     @Id
-    @SequenceGenerator(name = "hibernate_sequence1", sequenceName = "hibernate_sequence1", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence1")
+    @GeneratedValue
     public int getId() {
         return id;
     }

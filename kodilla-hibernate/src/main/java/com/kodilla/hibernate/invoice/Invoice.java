@@ -20,8 +20,7 @@ public class Invoice {
     }
 
     @Id
-    @SequenceGenerator(name = "hibernate_sequence2", sequenceName = "hibernate_sequence2", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hibernate_sequence2")
+    @GeneratedValue
     public int getId() {
         return id;
     }
