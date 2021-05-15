@@ -2,24 +2,20 @@ package com.kodilla.patterns.factory.tasks;
 
 public class TaskFactory {
 
-    private final ShoppingTaskDTO shoppingTaskDTO;
-    private final PaintingTaskDTO paintingTaskDTO;
-    private final DrivingTaskDTO drivingTaskDTO;
+    private TaskDTO taskDTO;
 
-    public TaskFactory(ShoppingTaskDTO shoppingTaskDTO, PaintingTaskDTO paintingTaskDTO, DrivingTaskDTO drivingTaskDTO) {
-        this.shoppingTaskDTO = new ShoppingTaskDTO();
-        this.paintingTaskDTO = new PaintingTaskDTO();
-        this.drivingTaskDTO = new DrivingTaskDTO();
+    public TaskFactory(TaskDTO taskDTO) {
+        this.taskDTO = taskDTO;
     }
 
     public Task makeTask(Tasks task) {
         switch (task) {
             case SHOPPING:
-                return new ShoppingTask(shoppingTaskDTO.getTaskName(), shoppingTaskDTO.getWhatToBuy(), shoppingTaskDTO.getQuantity());
+                return new ShoppingTask(taskDTO.getTaskName(), taskDTO.getTaskDetails1(), (double)taskDTO.getTaskDetails2());
             case PAINTING:
-                return new PaintingTask(paintingTaskDTO.getTaskName(), paintingTaskDTO.getColor(), paintingTaskDTO.getWhatToPaint());
+                return new PaintingTask(taskDTO.getTaskName(), taskDTO.getTaskDetails1(), (String)taskDTO.getTaskDetails2());
             case DRIVING:
-                return new DrivingTask(drivingTaskDTO.getTaskName(), drivingTaskDTO.getWhere(), drivingTaskDTO.getUsing());
+                return new DrivingTask(taskDTO.getTaskName(), taskDTO.getTaskDetails1(), (String)taskDTO.getTaskDetails2());
             default:
                 throw new IllegalStateException("Making task [" + task + "] is not possible.");
         }

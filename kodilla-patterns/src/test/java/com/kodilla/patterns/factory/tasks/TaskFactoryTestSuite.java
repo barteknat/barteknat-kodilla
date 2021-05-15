@@ -8,18 +8,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TaskFactoryTestSuite {
 
-    private final ShoppingTaskDTO shoppingTaskDTO = new ShoppingTaskDTO();
-    private final PaintingTaskDTO paintingTaskDTO = new PaintingTaskDTO();
-    private final DrivingTaskDTO drivingTaskDTO = new DrivingTaskDTO();
-    private final TaskFactory factory = new TaskFactory(shoppingTaskDTO, paintingTaskDTO, drivingTaskDTO);
-
     @Test
     void testFactoryShopping() {
         //Given
-        shoppingTaskDTO.setTaskParameters("Bedroom Equipment", "bed", 1);
-        Task shopping1 = factory.makeTask(SHOPPING);
-        shoppingTaskDTO.setTaskParameters("Kitchen Equipment", "oven", 1);
-        Task shopping2 = factory.makeTask(SHOPPING);
+        Task shopping1 = new TaskFactory(new TaskDTO("Bedroom Equipment", "bed", 1)).makeTask(SHOPPING);
+        Task shopping2 = new TaskFactory(new TaskDTO("Kitchen Equipment", "oven", 1)).makeTask(SHOPPING);
         //When
         shopping1.executeTask();
         shopping2.executeTask();
@@ -33,8 +26,7 @@ public class TaskFactoryTestSuite {
     @Test
     void testFactoryPainting() {
         //Given
-        paintingTaskDTO.setTaskParameters("Renovation", "green", "fence");
-        Task painting = factory.makeTask(PAINTING);
+        Task painting = new TaskFactory(new TaskDTO("Renovation", "green", "fence")).makeTask(PAINTING);
         //When
         painting.executeTask();
         //Then
@@ -45,8 +37,7 @@ public class TaskFactoryTestSuite {
     @Test
     void testFactoryDriving() {
         //Given
-        drivingTaskDTO.setTaskParameters("Holidays", "Sosnowiec", "car");
-        Task driving = factory.makeTask(DRIVING);
+        Task driving = new TaskFactory(new TaskDTO("Holidays", "Sosnowiec", "car")).makeTask(DRIVING);
         //When
         driving.executeTask();
         //Then
