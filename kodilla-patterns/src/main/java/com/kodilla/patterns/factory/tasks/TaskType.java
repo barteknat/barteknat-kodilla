@@ -1,6 +1,6 @@
 package com.kodilla.patterns.factory.tasks;
 
-public enum Tasks {
+public enum TaskType {
 
     SHOPPING,
     PAINTING,

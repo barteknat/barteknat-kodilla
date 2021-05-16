@@ -2,7 +2,7 @@ package com.kodilla.patterns.factory.tasks;
 
 import org.junit.jupiter.api.Test;
 
-import static com.kodilla.patterns.factory.tasks.Tasks.*;
+import static com.kodilla.patterns.factory.tasks.TaskType.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

@@ -8,16 +8,16 @@ public class TaskFactory {
         this.taskDTO = taskDTO;
     }
 
-    public Task makeTask(Tasks task) {
-        switch (task) {
+    public Task makeTask(TaskType taskType) {
+        switch (taskType) {
             case SHOPPING:
-                return new ShoppingTask(taskDTO.getTaskName(), taskDTO.getTaskDetails1(), (double)taskDTO.getTaskDetails2());
+                return new ShoppingTask(taskDTO.getTaskName(), taskDTO.getTaskDetails1(), (Double) taskDTO.getTaskDetails2());
             case PAINTING:
-                return new PaintingTask(taskDTO.getTaskName(), taskDTO.getTaskDetails1(), (String)taskDTO.getTaskDetails2());
+                return new PaintingTask(taskDTO.getTaskName(), taskDTO.getTaskDetails1(), (String) taskDTO.getTaskDetails2());
             case DRIVING:
-                return new DrivingTask(taskDTO.getTaskName(), taskDTO.getTaskDetails1(), (String)taskDTO.getTaskDetails2());
+                return new DrivingTask(taskDTO.getTaskName(), taskDTO.getTaskDetails1(), (String) taskDTO.getTaskDetails2());
             default:
-                throw new IllegalStateException("Making task [" + task + "] is not possible.");
+                throw new IllegalStateException("Making task [" + taskType + "] is not possible.");
         }
     }
 }
