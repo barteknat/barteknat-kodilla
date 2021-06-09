@@ -11,8 +11,8 @@ public class TaskFactoryTestSuite {
     @Test
     void testFactoryShopping() {
         //Given
-        Task shopping1 = new TaskFactory(new TaskDTO("Bedroom Equipment", "bed", 1)).makeTask(SHOPPING);
-        Task shopping2 = new TaskFactory(new TaskDTO("Kitchen Equipment", "oven", 1)).makeTask(SHOPPING);
+        Task shopping1 = new TaskFactory(new TaskDTO("Bedroom Equipment", "bed", 1.0)).makeTask(SHOPPING);
+        Task shopping2 = new TaskFactory(new TaskDTO("Kitchen Equipment", "oven", 1.0)).makeTask(SHOPPING);
         //When
         shopping1.executeTask();
         shopping2.executeTask();
