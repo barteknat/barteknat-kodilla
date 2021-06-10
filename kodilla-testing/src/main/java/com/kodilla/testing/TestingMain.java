@@ -1,15 +1,10 @@
 package com.kodilla.testing;
-<<<<<<< HEAD
-=======
 import com.kodilla.testing.calculator.Calculator;
->>>>>>> master
 
 public class TestingMain {
 
     public static void main(String[] args) {
-<<<<<<< HEAD
         System.out.println("Module 6. Introduction to software testing.");
-=======
 
         if (new Calculator().add(7, 10) == 17 && new Calculator().add(10, 7) == 17) {
             System.out.println("Test OK");
@@ -22,6 +17,5 @@ public class TestingMain {
         } else {
             System.out.println("Error");
         }
->>>>>>> master
     }
 }
