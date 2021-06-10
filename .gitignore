@@ -7,22 +7,7 @@ build/
 **/out/
 **/build/
 .DS_Store
-kodilla-exception/
-kodilla-good-patterns/build.gradle
-kodilla-good-patterns/src/main/java/com/kodilla/good/patterns/challengesExample/
-kodilla-rps/
-kodilla-spring-intro/
-kodilla-spring/
-kodilla-hibernate/
-kodilla-jdbc/
 kodilla-pattern2/
-kodilla-patterns/
-kodilla-stream/
-
-
-
-kodilla-testing/src/main/java/com/kodilla/testing/forum/
-kodilla-testing/src/test/java/com/kodilla/testing/forum/tdd/
 
 
 ### STS ###
