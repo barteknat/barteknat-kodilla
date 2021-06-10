@@ -1,0 +1,18 @@
+16.3.1
+INSERT INTO POSTS (USER_ID, BODY)
+VALUES (5, "this is new practice comment");
+
+COMMIT;
+
+16.3.2
+UPDATE POSTS
+SET BODY = "to delete"
+WHERE ID = 6;
+
+COMMIT;
+
+16.3.3
+DELETE FROM POSTS
+WHERE ID = 6;
+
+COMMIT;
