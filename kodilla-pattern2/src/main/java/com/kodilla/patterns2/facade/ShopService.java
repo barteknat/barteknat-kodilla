@@ -22,7 +22,7 @@ public class ShopService {
         this.productService = productService;
     }
 
-    public Long operOrder(Long userId) {
+    public Long openOrder(Long userId) {
         if (authenticator.isAuthenticated(userId)) {
             Long maxOrder = (long)orders.stream()
                     .mapToInt(o -> o.getOrderId().intValue())
