@@ -8,18 +8,18 @@ import java.util.List;
 
 @Entity
 @Table(name = "TASKLISTS")
-public class TaskList {
+public class Task2List {
 
     private int id;
     private String listName;
     private String description;
     private List<Task> tasks = new ArrayList<>();
 
-    public TaskList() {
+    public Task2List() {
 
     }
 
-    public TaskList(String listName, String description) {
+    public Task2List(String listName, String description) {
         this.listName = listName;
         this.description = description;
     }

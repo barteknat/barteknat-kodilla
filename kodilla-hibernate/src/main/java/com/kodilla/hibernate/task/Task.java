@@ -33,7 +33,7 @@ public class Task {
     private Date created;
     private int duration;
     private TaskFinancialDetails taskFinancialDetails;
-    private TaskList taskList;
+    private Task2List taskList;
 
     public Task() {
     }
@@ -71,7 +71,7 @@ public class Task {
 
     @ManyToOne
     @JoinColumn(name = "TASKLIST_ID")
-    public TaskList getTaskList() {
+    public Task2List getTaskList() {
         return taskList;
     }
 
@@ -95,7 +95,7 @@ public class Task {
         this.taskFinancialDetails = taskFinancialDetails;
     }
 
-    public void setTaskList(TaskList taskList) {
+    public void setTaskList(Task2List taskList) {
         this.taskList = taskList;
     }
 
