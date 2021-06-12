@@ -9,6 +9,12 @@ import java.util.List;
         name = "Employee.retrieveEmployee",
         query = "FROM Employee WHERE lastName = :LASTNAME"
 )
+
+@NamedQuery(
+        name = "Employee.retrieveEmployeesContains",
+        query = "FROM Employee WHERE lastName LIKE CONCAT('%',:FRAGMENT,'%')"
+)
+
 @Entity
 public class Employee {
 
@@ -69,5 +75,4 @@ public class Employee {
     private void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
-
 }
