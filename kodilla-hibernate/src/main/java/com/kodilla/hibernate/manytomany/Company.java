@@ -11,6 +11,12 @@ import java.util.List;
                 " WHERE COMPANY_NAME LIKE :LETTERS",
         resultClass = Company.class
 )
+
+@NamedQuery(
+        name = "Company.retrieveCompaniesContains",
+        query = "FROM Company WHERE companyName LIKE CONCAT('%',:FRAGMENT,'%')"
+)
+
 @Entity
 public class Company {
 
@@ -54,12 +60,5 @@ public class Company {
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
-    }
-
-    @Override
-    public String toString() {
-        return "Company{" +
-                "companyName='" + companyName + '\'' +
-                '}';
     }
 }
